@@ -2,55 +2,52 @@
 #include <string.h>
 #include "blood_bank.h"
 
-#define MAX_DONORS 100
-
-Donor donors[MAX_DONORS];
+struct Donor donors[100];
 int donorCount = 0;
 
 void addDonor() {
-    if (donorCount >= MAX_DONORS) {
-        printf("Oops... maximum donors reached!\n");
-        return;
-    }
+    printf("\n➤ Enter donor details:\n");
 
-    Donor *newGuy = &donors[donorCount];
-    newGuy->id = donorCount + 1;
+    printf("Name: ");
+    scanf("%s", donors[donorCount].name);
 
-    printf("Enter donor name: ");
-    scanf("%s", newGuy->name);
+    printf("Blood Group (A+/A-/B+/B-/AB+/AB-/O+/O-): ");
+    scanf("%s", donors[donorCount].bloodGroup);
 
-    printf("Enter blood group (A+/A-/B+/etc): ");
-    scanf("%s", newGuy->bloodGroup);
+    printf("Phone: ");
+    scanf("%s", donors[donorCount].phone);
 
-    printf("Enter phone: ");
-    scanf("%s", newGuy->phone);
+    printf("Age: ");
+    scanf("%d", &donors[donorCount].age);
 
-    printf("Enter last donation date (YYYY-MM-DD): ");
-    scanf("%s", newGuy->lastDonation);
+    printf("Address: ");
+    scanf("%s", donors[donorCount].address);
 
-    printf("👍 Donor %s added! (ID: %d)\n", newGuy->name, newGuy->id);
+    int newId = donorCount + 1;
+    donors[donorCount].id = newId;
 
     donorCount++;
+
+    printf(" Donor '%s' (ID: %d) added successfully!\n",
+           donors[newId - 1].name, newId);
 }
 
 void displayDonors() {
     if (donorCount == 0) {
-        printf("📭 No donors registered yet. Add someone first!\n");
+        printf("📋 No donors yet!\n");
         return;
     }
 
-    printf("\n=== Donor List ===\n");
-    printf("ID | Name          | Blood Group | Phone        | Last Donation\n");
-    printf("---------------------------------------------------------------\n");
+    printf("\n📋 DONOR LIST (%d donors):\n", donorCount);
+    printf("ID | Name        | Blood  | Phone       | Age\n");
+    printf("--|--------------|--------|-------------|----\n");
 
     for (int i = 0; i < donorCount; i++) {
-        printf("%2d | %-12s | %-11s | %-12s | %s\n",
-            donors[i].id,
-            donors[i].name,
-            donors[i].bloodGroup,
-            donors[i].phone,
-            donors[i].lastDonation);
+        printf("%2d | %-12s | %-6s | %-11s | %3d\n",
+               donors[i].id,
+               donors[i].name,
+               donors[i].bloodGroup,
+               donors[i].phone,
+               donors[i].age);
     }
-
-    printf("\nTotal donors: %d\n", donorCount);
 }
