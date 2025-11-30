@@ -7,7 +7,7 @@ int donorCount = 0;
 
 void addDonor() {
 if (donorCount >= MAX_DONORS) {
-printf("\n❌ Maximum donors limit reached!\n");
+printf("\n Maximum donors limit reached!\n");
 return;
 }
 
@@ -28,7 +28,7 @@ scanf("%s", donors[idx].address);
 donors[idx].id = idx + 1;
 donorCount++;
 
-printf("✅ Donor '%s' (ID: %d) added successfully!\n",
+printf(" Donor '%s' (ID: %d) added successfully!\n",
        donors[idx].name, donors[idx].id);
 
 
@@ -36,11 +36,11 @@ printf("✅ Donor '%s' (ID: %d) added successfully!\n",
 
 void displayDonors() {
 if (donorCount == 0) {
-printf("\n📋 No donors yet!\n");
+printf("\n No donors yet!\n");
 return;
 }
 
-printf("\n📋 DONOR LIST (%d donors):\n", donorCount);
+printf("\n DONOR LIST (%d donors):\n", donorCount);
 printf("ID | Name        | Blood  | Phone       | Age\n");
 printf("--|--------------|--------|-------------|----\n");
 
@@ -56,7 +56,7 @@ for (k = 0; k < donorCount; k++) {
 
 void requestBlood() {
 char grpWanted[6];
-printf("\n🚨 EMERGENCY BLOOD REQUEST:\n");
+printf("\n EMERGENCY BLOOD REQUEST:\n");
 printf("Enter REQUIRED blood group: ");
 scanf("%s", grpWanted);
 
@@ -68,7 +68,7 @@ int c = 0;
 for (c = 0; c < donorCount; c++) {
     if (strcmp(donors[c].bloodGroup, grpWanted) == 0) {
 
-        printf("✅ AVAILABLE DONOR #%d:\n", donors[c].id);
+        printf(" AVAILABLE DONOR #%d:\n", donors[c].id);
         printf("   Name: %s\n", donors[c].name);
         printf("   Phone: %s\n", donors[c].phone);
         printf("   Address: %s\n", donors[c].address);
@@ -79,10 +79,10 @@ for (c = 0; c < donorCount; c++) {
 }
 
 if (hits == 0) {
-    printf("❌ NO %s DONORS AVAILABLE!\n", grpWanted);
-    printf("🚨 Please register more %s donors!\n", grpWanted);
+    printf(" NO %s DONORS AVAILABLE!\n", grpWanted);
+    printf(" Please register more %s donors!\n", grpWanted);
 } else {
-    printf("✅ %d %s donor(s) found! Contact immediately!\n", hits, grpWanted);
+    printf(" %d %s donor(s) found! Contact immediately!\n", hits, grpWanted);
 }
 
 
