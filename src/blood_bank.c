@@ -49,5 +49,38 @@ void displayDonors() {
                donors[i].bloodGroup,
                donors[i].phone,
                donors[i].age);
+void requestBlood() {
+char grpNeeded[6];
+printf("\n🚨 EMERGENCY BLOOD REQUEST:\n");
+printf("Enter REQUIRED blood group: ");
+scanf("%s", grpNeeded);
+
+printf("\n🔍 SEARCHING FOR %s DONORS...\n", grpNeeded);
+
+int hasMatch = 0;
+int idx = 0;
+
+for (idx = 0; idx < donorCount; idx++) {
+    if (strcmp(donors[idx].bloodGroup, grpNeeded) == 0) {
+
+        printf("✅ AVAILABLE DONOR #%d:\n", donors[idx].id);
+        printf("   Name: %s\n", donors[idx].name);
+        printf("   Phone: %s\n", donors[idx].phone);
+        printf("   Address: %s\n", donors[idx].address);
+        printf("   Age: %d\n\n", donors[idx].age);
+
+        hasMatch = 1;
+    }
+}
+
+if (hasMatch == 0) {
+    printf("❌ NO %s DONORS AVAILABLE!\n", grpNeeded);
+    printf("🚨 Please register more %s donors!\n", grpNeeded);
+} else {
+    printf("✅ %s donor(s) found! Contact them immediately!\n", grpNeeded);
+}
+
+
+}
     }
 }
