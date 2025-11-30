@@ -94,7 +94,7 @@ int main() {
         printf("\n2.  View All Donors");
         printf("\n3.  Request Blood (Need Donor)");
         printf("\n4. Exit");
-        printf("\n Enter choice (1-4): ");
+        printf("\nEnter choice (1-4): ");
         scanf("%d", &choice);
         
         switch (choice) {
