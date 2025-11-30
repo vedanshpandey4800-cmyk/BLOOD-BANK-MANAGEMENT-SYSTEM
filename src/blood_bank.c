@@ -2,7 +2,7 @@
 #include <string.h>
 #include "blood_bank.h"
 
-struct Donor donors[100];
+struct Donor donors[MAX_DONORS];
 int donorCount = 0;
 
 void addDonor() {
