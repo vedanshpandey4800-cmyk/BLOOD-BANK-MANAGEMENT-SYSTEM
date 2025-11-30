@@ -4,12 +4,12 @@
 #define MAX_DONORS 100
 
 struct Donor {
-    int id;
-    char name[50];
-    char bloodGroup[5];
-    char phone[15];
-    int age;
-    char address[100];
+int id;
+char fullName[52];
+char group[6];
+char phone[18];
+int age;
+char homeAddr[104];
 };
 
 extern struct Donor donors[MAX_DONORS];
@@ -17,5 +17,6 @@ extern int donorCount;
 
 void addDonor();
 void displayDonors();
-void requestBlood();  
+void requestBlood();
+
 #endif
