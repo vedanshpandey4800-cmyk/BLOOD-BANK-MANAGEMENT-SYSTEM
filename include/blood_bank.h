@@ -17,5 +17,5 @@ extern int donorCount;
 
 void addDonor();
 void displayDonors();
-
+void requestBlood();  
 #endif
