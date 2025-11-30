@@ -5,21 +5,30 @@
 int main() {
     printf(" BLOOD BANK MANAGEMENT SYSTEM \n");
     printf("============================\n");
-    
-    int choice;
-    while(1) {
+
+    int menuPick = 0;
+
+    while (1) {
         printf("\n1. Add Donor\n");
         printf("2. View Donors\n");
         printf("3. Exit\n");
         printf("Enter choice: ");
-        scanf("%d", &choice);
-        
-        switch(choice) {
-            case 1: addDonor(); break;
-            case 2: displayDonors(); break;
-            case 3: exit(0);
-            default: printf(" Invalid choice!\n");
+
+        scanf("%d", &menuPick);
+
+        switch (menuPick) {
+            case 1:
+                addDonor();
+                break;
+            case 2:
+                displayDonors();
+                break;
+            case 3:
+                exit(0);
+            default:
+                printf("Hmm... that doesn't look like a valid choice.\n");
         }
     }
+
     return 0;
 }
