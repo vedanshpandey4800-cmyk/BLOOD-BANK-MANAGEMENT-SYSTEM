@@ -1,13 +1,14 @@
 #ifndef BLOOD_BANK_H
 #define BLOOD_BANK_H
 
-typedef struct {
-    int id;
-    char name[50];
-    char bloodGroup[4];
-    char phone[15];
-    char lastDonation[11];
-} Donor;
+struct Donor {
+    int    id;
+    char   fullName[50];
+    char   bGroup[5];
+    char   phoneNo[15];
+    int    yearsOld;
+    char   homeAddr[100];
+};
 
 void addDonor();
 void displayDonors();
