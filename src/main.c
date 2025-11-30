@@ -3,20 +3,22 @@
 #include "blood_bank.h"
 
 int main() {
-    printf(" BLOOD BANK MANAGEMENT SYSTEM \n");
-    printf("============================\n");
+    printf("\n ================================ ");
+    printf("\n   BLOOD BANK MANAGEMENT SYSTEM   ");
+    printf("\n ================================ \n");
 
-    int menuPick = 0;
+    int opt = 0;
+    int loopFlag = 1;
 
-    while (1) {
-        printf("\n1. Add Donor\n");
-        printf("2. View Donors\n");
-        printf("3. Exit\n");
-        printf("Enter choice: ");
+    while (loopFlag) {
+        printf("\n MAIN MENU:");
+        printf("\n1. ➕ Add New Donor");
+        printf("\n2.  View All Donors");
+        printf("\n3.  Exit");
+        printf("\nEnter choice (1-3): ");
+        scanf("%d", &opt);
 
-        scanf("%d", &menuPick);
-
-        switch (menuPick) {
+        switch (opt) {
             case 1:
                 addDonor();
                 break;
@@ -24,9 +26,11 @@ int main() {
                 displayDonors();
                 break;
             case 3:
-                exit(0);
+                printf("\n Goodbye! \n");
+                loopFlag = 0;
+                break;
             default:
-                printf("Hmm... that doesn't look like a valid choice.\n");
+                printf(" Invalid choice!\n");
         }
     }
 
