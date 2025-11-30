@@ -3,25 +3,24 @@
 #include "blood_bank.h"
 
 int main() {
-   
-            printf("\n ================================ ");
-printf("\n    BLOOD BANK MANAGEMENT SYSTEM    ");
-printf("\n================================\n");
 
-int userChoice = 0;
+printf("\n🩸================================🩸");
+printf("\n🩸    BLOOD BANK MANAGEMENT SYSTEM    🩸");
+printf("\n🩸================================🩸\n");
+
+int opt = 0;
 
 while (1) {
 
-    printf("\n MAIN MENU:");
-    printf("\n1.  Add New Donor");
-    printf("\n2.  View All Donors");
-    printf("\n3.  REQUEST BLOOD (Need Donor)");
-    printf("\n4.  Exit");
+    printf("\n📋 MAIN MENU:");
+    printf("\n1. ➕ Add New Donor");
+    printf("\n2. 📋 View All Donors");
+    printf("\n3. 🚨 REQUEST BLOOD (Need Donor)");
+    printf("\n4. 💾 Exit");
     printf("\nEnter choice (1-4): ");
+    scanf("%d", &opt);
 
-    scanf("%d", &userChoice);
-
-    switch (userChoice) {
+    switch (opt) {
         case 1:
             addDonor();
             break;
@@ -35,11 +34,11 @@ while (1) {
             break;
 
         case 4:
-            printf("\n Goodbye! \n");
+            printf("\n✅ Goodbye! 👋\n");
             exit(0);
 
         default:
-            printf(" Invalid choice! Try 1-4.\n");
+            printf("❌ Invalid choice! Try 1-4.\n");
     }
 
     printf("\nPress Enter to continue...");
@@ -47,8 +46,7 @@ while (1) {
     getchar();
 }
 
+return 0;
 
 
-
-    return 0;
 }
