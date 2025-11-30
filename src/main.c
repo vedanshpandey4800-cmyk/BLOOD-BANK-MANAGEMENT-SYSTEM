@@ -17,32 +17,32 @@ int donorCount = 0;
 
 void addDonor() {
     if (donorCount >= MAX_DONORS) {
-        printf("❌ MAX LIMIT!\n");
+        printf(" MAX LIMIT!\n");
         return;
     }
     
-    printf("\n➤ Name: ");
+    printf("\n Name: ");
     scanf("%s", donors[donorCount].name);
-    printf("➤ Blood Group (A+/O+/B+): ");
+    printf(" Blood Group (A+/O+/B+): ");
     scanf("%s", donors[donorCount].bloodGroup);
-    printf("➤ Phone: ");
+    printf(" Phone: ");
     scanf("%s", donors[donorCount].phone);
-    printf("➤ Age: ");
+    printf(" Age: ");
     scanf("%d", &donors[donorCount].age);
-    printf("➤ Address: ");
+    printf(" Address: ");
     scanf("%s", donors[donorCount].address);
     
     donors[donorCount].id = ++donorCount;
-    printf("✅ Donor '%s' (ID: %d) ADDED!\n", donors[donorCount-1].name, donors[donorCount-1].id);
+    printf(" Donor '%s' (ID: %d) ADDED!\n", donors[donorCount-1].name, donors[donorCount-1].id);
 }
 
 void displayDonors() {
     if (donorCount == 0) {
-        printf("\n📋 NO DONORS YET!\n");
+        printf("\n NO DONORS YET!\n");
         return;
     }
     
-    printf("\n📋 DONOR LIST (%d donors):\n", donorCount);
+    printf("\n DONOR LIST (%d donors):\n", donorCount);
     printf("ID | Name       | Blood | Phone      | Age\n");
     printf("--|------------|-------|------------|----\n");
     
@@ -55,46 +55,46 @@ void displayDonors() {
 
 void requestBlood() {
     char needed[5];
-    printf("\n🚨 EMERGENCY BLOOD REQUEST:\n");
-    printf("➤ Needed Blood Group: ");
+    printf("\n EMERGENCY BLOOD REQUEST:\n");
+    printf(" Needed Blood Group: ");
     scanf("%s", needed);
     
     int found = 0;
-    printf("\n🔍 SEARCHING %s DONORS...\n", needed);
+    printf("\n SEARCHING %s DONORS...\n", needed);
     
     for (int i = 0; i < donorCount; i++) {
         if (strcmp(donors[i].bloodGroup, needed) == 0) {
-            printf("✅ DONOR #%d:\n", donors[i].id);
-            printf("   👤 %s\n", donors[i].name);
-            printf("   📞 %s\n", donors[i].phone);
-            printf("   📍 %s\n", donors[i].address);
-            printf("   🎂 %d years\n\n", donors[i].age);
+            printf(" DONOR #%d:\n", donors[i].id);
+            printf("    %s\n", donors[i].name);
+            printf("    %s\n", donors[i].phone);
+            printf("    %s\n", donors[i].address);
+            printf("    %d years\n\n", donors[i].age);
             found++;
         }
     }
     
     if (found == 0) {
-        printf("❌ NO %s DONORS AVAILABLE!\n", needed);
-        printf("🚨 Register more %s donors!\n", needed);
+        printf(" NO %s DONORS AVAILABLE!\n", needed);
+        printf(" Register more %s donors!\n", needed);
     } else {
-        printf("✅ %d %s DONOR(S) FOUND!\n", found, needed);
-        printf("🚨 CONTACT IMMEDIATELY!\n");
+        printf(" %d %s DONOR(S) FOUND!\n", found, needed);
+        printf(" CONTACT IMMEDIATELY!\n");
     }
 }
 
 int main() {
-    printf("\n🩸================================🩸");
-    printf("\n🩸    BLOOD BANK MANAGEMENT SYSTEM    🩸");
-    printf("\n🩸================================🩸\n");
+    printf("\n ================================ ");
+    printf("\n    BLOOD BANK MANAGEMENT SYSTEM    ");
+    printf("\n ================================ \n");
     
     int choice;
     while (1) {
-        printf("\n📋 MAIN MENU:");
-        printf("\n1. ➕ Add New Donor");
-        printf("\n2. 📋 View All Donors");
-        printf("\n3. 🚨 Request Blood (Need Donor)");
-        printf("\n4. 💾 Exit");
-        printf("\n➤ Enter choice (1-4): ");
+        printf("\n MAIN MENU:");
+        printf("\n1.  Add New Donor");
+        printf("\n2.  View All Donors");
+        printf("\n3.  Request Blood (Need Donor)");
+        printf("\n4. Exit");
+        printf("\n Enter choice (1-4): ");
         scanf("%d", &choice);
         
         switch (choice) {
@@ -102,13 +102,13 @@ int main() {
             case 2: displayDonors(); break;
             case 3: requestBlood(); break;
             case 4: 
-                printf("\n✅ THANK YOU! 👋\n");
+                printf("\n THANK YOU! \n");
                 return 0;
             default: 
-                printf("❌ INVALID CHOICE! (1-4)\n");
+                printf(" INVALID CHOICE! (1-4)\n");
         }
         
-        printf("\n➤ Press Enter to continue...");
+        printf("\n Press Enter to continue...");
         getchar(); getchar();
     }
     return 0;
