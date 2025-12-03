@@ -78,6 +78,11 @@ void requestBlood() {
 
 int main() {
     printf("\n🩸 BLOOD BANK MANAGEMENT SYSTEM 🩸\n");
+    donors[i].name
+    donors[i].bloodGroup
+    donors[i].phone
+    donors[i].age
+    donors[i].address
     
     int choice;
     while (1) {
